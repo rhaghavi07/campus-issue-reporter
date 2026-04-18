@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>View Issues</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<div class="navbar">
+    <a href="/report">Report</a>
+    <a href="/dashboard">Dashboard</a>
+    <a href="/logout">Logout</a>
+</div>
+
+<div class="container">
+    <h2>All Issues</h2>
+
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Email</th>
+            <th>Type</th>
+            <th>Location</th>
+            <th>Description</th>
+            <th>Status</th>
+            <th>Update</th>
+            <th>Delete</th>
+        </tr>
+
+        {% for row in data %}
+        <tr>
+            <td>{{ row[0] }}</td>
+            <td>{{ row[1] }}</td>
+            <td><b>{{ row[2] }}</b></td>
+            <td>{{ row[3] }}</td>
+            <td>{{ row[4] }}</td>
+            <td>{{ row[5] }}</td>
+
+            <td>
+                <form action="/update_status/{{ row[0] }}" method="post">
+                    <select name="status">
+                        <option>Pending</option>
+                        <option>In Progress</option>
+                        <option>Resolved</option>
+                    </select>
+                    <button>Update</button>
+                </form>
+            </td>
+
+            <td>
+                {% if row[1] == session['email'] %}
+                <form action="/delete_issue/{{ row[0] }}" method="post">
+                    <button style="background:red; color:white;">Delete</button>
+                </form>
+                {% else %}
+                -
+                {% endif %}
+            </td>
+
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+
+</body>
+</html>

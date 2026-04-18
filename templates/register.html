@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Register</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<div class="auth-bg">
+    <div class="overlay">
+
+        <div class="auth-box">
+            <h2>Create Account</h2>
+
+            <form action="/send" method="post">
+                <input type="email" name="email" placeholder="Enter Email" required>
+                <button type="submit">Send OTP</button>
+            </form>
+
+            <p>
+                Already registered?
+                <a href="/login">Sign in</a>
+            </p>
+        </div>
+
+    </div>
+</div>
+
+</body>
+</html>

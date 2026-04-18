@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Report Issue</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<div class="navbar">
+    <a href="/report">Report</a>
+    <a href="/view_issues">View Issues</a>
+    <a href="/dashboard">Dashboard</a>
+    <a href="/logout">Logout</a>
+</div>
+
+<div class="container">
+    <h2>Report an Issue</h2>
+
+    <form action="/submit_issue" method="post">
+
+        Issue Type:
+        <select name="issue_type" id="issue_type" onchange="showOther()">
+            <option>Electricity</option>
+            <option>Water</option>
+            <option>Cleanliness</option>
+            <option>WiFi</option>
+            <option>Others</option>
+        </select>
+
+        <!-- Hidden input (only for Others) -->
+        <div id="other_box" style="display:none;">
+            Enter the Issue (Type):
+            <input type="text" name="other_issue" id="other_issue">
+        </div>
+
+        Location:
+        <input name="location" required>
+
+        Description:
+        <textarea name="description" required></textarea>
+
+        <button type="submit">Submit Issue</button>
+    </form>
+</div>
+
+<script>
+function showOther() {
+    let type = document.getElementById("issue_type").value;
+    let box = document.getElementById("other_box");
+    let input = document.getElementById("other_issue");
+
+    if (type === "Others") {
+        box.style.display = "block";
+        input.required = true;
+    } else {
+        box.style.display = "none";
+        input.required = false;
+    }
+}
+</script>
+
+</body>
+</html>

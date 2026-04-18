@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Enter OTP</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<div class="auth-bg">
+    <div class="overlay">
+
+        <div class="auth-box">
+            <h2>Enter OTP</h2>
+
+            <!-- (Temporary display, you can remove later) -->
+            <p><b>OTP:</b> {{ otp }}</p>
+
+            <form action="/verify" method="post">
+                <input type="text" name="otp" placeholder="Enter OTP" required>
+                <button type="submit">Verify</button>
+            </form>
+
+        </div>
+
+    </div>
+</div>
+
+</body>
+</html>

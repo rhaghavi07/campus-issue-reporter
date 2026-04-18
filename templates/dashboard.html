@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<div class="navbar">
+    <a href="/report">Report</a>
+    <a href="/view_issues">View Issues</a>
+    <a href="/logout">Logout</a>
+</div>
+
+<div class="container">
+    <h2>Dashboard</h2>
+
+    <!-- 🔥 CENTERED & HIGHLIGHTED INSIGHTS -->
+    <div style="text-align:center; margin-bottom:30px;">
+        <div style="background:#ffffff; display:inline-block; padding:20px 40px; border-radius:10px; box-shadow:0px 0px 10px rgba(0,0,0,0.1);">
+            <p style="font-size:20px; margin:10px 0;">
+                <b>Most reported issue:</b> {{ most_common }}
+            </p>
+            <p style="font-size:20px; margin:10px 0;">
+                <b>Top complaint location:</b> {{ top_location }}
+            </p>
+        </div>
+    </div>
+
+    <h3>Charts</h3>
+
+    <div style="display: flex; flex-wrap: wrap; justify-content: space-around;">
+
+        <div style="text-align: center;">
+            <img src="/static/pie.png" class="dashboard-img" width="350">
+            <p><b>Most Common Issues</b></p>
+        </div>
+
+        <div style="text-align: center;">
+            <img src="/static/bar.png" class="dashboard-img" width="350">
+            <p><b>Issues per Location</b></p>
+        </div>
+
+        <div style="text-align: center;">
+            <img src="/static/line.png" class="dashboard-img" width="350">
+            <p><b>Issues Over Time</b></p>
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>
