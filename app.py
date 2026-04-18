@@ -2,6 +2,8 @@ from flask import Flask, render_template, request, session, redirect
 import sqlite3
 import random
 import pandas as pd
+import matplotlib
+matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 import seaborn as sns
 import numpy as np
